@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Acampamento - Desbravadores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rye&display=swap');
+
+        :root {
+            --dbv-green: #005826;
+            --dbv-yellow: #FFD100;
+            --dbv-khaki: #F0E68C;
+            --dbv-brown: #5D4037;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f1ea;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dcd6c3' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .header-font {
+            font-family: 'Rye', serif;
+        }
+
+        .requirement-card {
+            border-left: 5px solid var(--dbv-yellow);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--dbv-green);
+            border-radius: 4px;
+        }
+        
+        .details-content {
+            display: block;
+            margin-top: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-10">
+
+    <!-- Header -->
+    <header class="bg-green-900 text-white p-6 shadow-lg border-b-4 border-yellow-400 relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-10 transform translate-x-10 -translate-y-10">
+            <i class="fas fa-campground text-9xl"></i>
+        </div>
+        <div class="container mx-auto relative z-10 text-center md:text-left">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl header-font text-yellow-400 mb-2">Acampamento CDPJ - Na Trilha do Mestre</h1>
+                    <p class="text-green-100 text-sm md:text-base"><i class="fas fa-map-marker-alt mr-2"></i>Camboatá | <i class="fas fa-calendar-alt mx-2"></i>Sexta a Domingo</p>
+                </div>
+                <div class="mt-4 md:mt-0 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
+                    <p class="text-yellow-400 font-bold text-center text-lg">Lema</p>
+                    <p class="text-xs italic text-center">"Não levar nada além de fotos,<br>não deixar nada além de pegadas,<br>não matar nada além do tempo"</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-4 max-w-4xl mt-8">
+
+        <!-- Friday Schedule -->
+        <div id="friday" class="day-content space-y-4 mb-12">
+            <!-- Header do Dia -->
+            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-800 mb-6 sticky top-0 z-20">
+                <div class="flex items-center">
+                    <div class="bg-green-100 text-green-800 rounded-full p-3 mr-4">
+                        <i class="fas fa-sun text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-green-900">Sexta-feira</h2>
+                        <p class="text-gray-600">Chegada, montagem e espiritualidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Items -->
+            <!-- 15:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">15:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-gray-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-car mr-2 text-gray-500"></i>Saída de Casa</h3>
+                    <p class="text-sm text-gray-600">O ônibus sai da Igreja Adventista do Jardim Universitário, as 15:00.</p>
+                </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">16:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-gray-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-flag mr-2 text-green-600"></i>Chegada & Cerimônia de Abertura</h3>
+                    <p class="text-sm text-gray-600">Hasteamento das bandeiras, Civismo e instruções iniciais.</p>
+                </div>
+            </div>
+
+            <!-- 16:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">16:30</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 1</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-campground mr-2 text-green-700"></i>Montagem de Barracas</h3>
+                    <p class="text-sm text-gray-600">Montagem do acampamento base e instrução.</p>
+                    <p class="text-sm text-gray-600">Vamos aproveitar que estamos montando o acampamento, para já passar esse requisito</p>
+                    
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Saber montar uma barraca corretamente.</li>
+                            <li>Observar regras de prevenção contra incêndios após montagem.</li>
+                            <li>Organização interna e valetas (se necessário).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">18:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-praying-hands mr-2 text-purple-600"></i>Culto de Pôr do Sol</h3>
+                    <p class="text-sm text-gray-600">Recepção do Sábado.</p>
+                </div>
+            </div>
+
+            <!-- 19:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">19:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-orange-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-utensils mr-2 text-orange-600"></i>Jantar</h3>
+                </div>
+            </div>
+
+            <!-- 20:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">20:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-red-500">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-fire mr-2 text-red-600"></i>Cerimônia do Fogo do Conselho</h3>
+                    <p class="text-sm text-gray-600">Momento de inspiração e comunhão.</p>
+                </div>
+            </div>
+
+            <!-- 22:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">22:00</div>
+                <div class="flex-1 bg-gray-100 p-4 rounded-lg shadow-md border-l-4 border-gray-600 opacity-80">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-bed mr-2"></i>Hora de Dormir</h3>
+                    <p class="text-sm text-gray-600">Higiene e preparação.</p>
+                </div>
+            </div>
+             <!-- 22:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">22:30</div>
+                <div class="flex-1 bg-gray-200 p-3 rounded-lg shadow-inner border-l-4 border-black opacity-70">
+                    <h3 class="font-bold text-md text-gray-800"><i class="fas fa-volume-mute mr-2"></i>Silêncio Total</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t-4 border-dashed border-gray-300 my-8"></div>
+
+        <!-- Saturday Schedule -->
+        <div id="saturday" class="day-content space-y-4 mb-12">
+             <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-800 mb-6 sticky top-0 z-20">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 text-blue-800 rounded-full p-3 mr-4">
+                        <i class="fas fa-cloud-sun text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-green-900">Sábado</h2>
+                        <p class="text-gray-600">Adoração, natureza e atividades de classe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07:00 - 08:00 Bloco Manhã -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">07:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-300">
+                    <h3 class="font-bold text-lg text-gray-800">Despertar & Matinais</h3>
+                    <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                        <li><span class="font-bold">06:00</span> - Acordar</li>
+                        <li><span class="font-bold">06:15</span> - Devocional</li>
+                        <li><span class="font-bold">06:30</span> - Higiene Pessoal</li>
+                        <li><span class="font-bold">07:00</span> - Desjejum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 09:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">09:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-bible mr-2 text-purple-600"></i>Escola Sabatina & Culto Divino</h3>
+                </div>
+            </div>
+
+            <!-- 11:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">11:00</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 2</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-leaf mr-2 text-green-600"></i>Lição Espiritual da Natureza</h3>
+                    <p class="text-sm text-gray-600">Realizado logo após o culto ou integrado a ele.</p>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <p>Retirar uma lição espiritual prática da natureza observada no local do acampamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">12:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-orange-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-utensils mr-2 text-orange-600"></i>Almoço</h3>
+                </div>
+            </div>
+
+            <!-- 13:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">13:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-users mr-2 text-blue-600"></i>Tarde Livre (Unidades)</h3>
+                    <p class="text-sm text-gray-600">Atividades por unidade, cantinho da unidade, brincadeiras e jogos que façam sentido no sábado.</p>
+                </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">16:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-guitar mr-2 text-purple-600"></i>Culto Jovem (JA)</h3>
+                </div>
+            </div>
+
+            <!-- 17:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">17:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-gray-800">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-flag mr-2"></i>Civismo (Pôr do Sol)</h3>
+                    <p class="text-sm text-gray-600">Arriamento das bandeiras e despedida do Sábado.</p>
+                </div>
+            </div>
+
+             <!-- 18:00 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">18:00</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 3</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-bread-slice mr-2 text-yellow-700"></i>Culinária</h3>
+                    <p class="text-sm text-gray-600">Preparação para o jantar.</p>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <p><strong>Tarefa:</strong> Fazer e comer pão no espeto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">19:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-orange-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-utensils mr-2 text-orange-600"></i>Jantar</h3>
+                </div>
+            </div>
+
+             <!-- 20:00 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">20:00</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 4</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-snowflake mr-2 text-blue-400"></i>Conservação de Alimentos</h3>
+                    <p class="text-sm text-gray-600">Instrução prática + Social.</p>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <p>Conhecer um método natural (além do gelo) para manter alimentos frios no acampamento.</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 21:00 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">20:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-pink-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-laugh mr-2 text-pink-600"></i>Recreação / Social</h3>
+                </div>
+            </div>
+
+             <!-- 22:00 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">22:00</div>
+                <div class="flex-1 bg-gray-100 p-4 rounded-lg shadow-md border-l-4 border-gray-600 opacity-80">
+                    <h3 class="font-bold text-lg text-gray-800">Dormir & Silêncio</h3>
+                    <p class="text-sm text-red-600 font-bold">Amanhã acordamos às 03:30!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t-4 border-dashed border-gray-300 my-8"></div>
+
+        <!-- Sunday Schedule -->
+        <div id="sunday" class="day-content space-y-4 mb-12">
+            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-800 mb-6 sticky top-0 z-20">
+                <div class="flex items-center">
+                    <div class="bg-yellow-100 text-yellow-800 rounded-full p-3 mr-4">
+                        <i class="fas fa-mountain text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-green-900">Domingo</h2>
+                        <p class="text-gray-600">Trilha, fogueiras e encerramento.</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 03:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">03:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-yellow-600">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-bug mr-2 text-yellow-700"></i>Alvorada</h3>
+                    <p class="text-sm text-gray-600">Acordar, arrumar mochilas leves.</p>
+                </div>
+            </div>
+
+            <!-- 04:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">04:00</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">TRILHA + ATIVIDADE 5</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-hiking mr-2 text-green-800"></i>Trilha & Lema</h3>
+                    <p class="text-sm text-gray-600">Caminhada matinal.</p>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <p class="mb-2 font-bold">Pausa no meio/final da trilha para instrução:</p>
+                        <p>Explicar e praticar: "Não levar nada além de fotos, não deixar nada além de pegadas, não matar nada além do tempo".</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 07:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">07:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-orange-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-coffee mr-2 text-orange-600"></i>Retorno & Desjejum</h3>
+                </div>
+            </div>
+
+             <!-- 08:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">08:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-gray-800">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-flag mr-2"></i>Civismo</h3>
+                    <p class="text-sm text-gray-600">Hasteamento.</p>
+                </div>
+            </div>
+
+            <!-- 09:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">08:30</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 3</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-fire mr-2 text-red-600"></i>Instrução de Fogueiras</h3>
+                    <p class="text-sm text-gray-600">Prática intensiva.</p>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Segurança com fogo e fósforos.</li>
+                            <li>Fazer fogueira com 1 fósforo.</li>
+                            <li>Proteção contra chuva.</li>
+                            <li><strong>5 Tipos Obrigatórios:</strong>
+                                <ul class="pl-6 list-circle text-xs mt-1">
+                                    <li>Fogo do Conselho</li>
+                                    <li>Altar de Cozinha (Cozinhar)</li>
+                                    <li>Fogo de Trincheira (Cozinhar)</li>
+                                    <li>Cercadura de Pedra</li>
+                                    <li>Cama Rápida</li>
+                                    <li>(Extras: Estrela, Caçador, Refletor)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">10:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-teal-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-map mr-2 text-teal-600"></i>Caça ao Tesouro</h3>
+                </div>
+            </div>
+
+             <!-- 12:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">12:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-orange-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-utensils mr-2 text-orange-600"></i>Almoço</h3>
+                </div>
+            </div>
+
+            <!-- 13:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">13:00</div>
+                <div class="flex-1 bg-yellow-50 p-4 rounded-lg shadow-md requirement-card relative">
+                    <span class="inline-block bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold mb-2">ATIVIDADE 1</span>
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-tools mr-2 text-gray-700"></i>Canivete e Machadinha</h3>
+                    <div class="details-content text-sm text-gray-700 bg-yellow-100 p-3 rounded border border-yellow-200">
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Demonstrar habilidade no uso.</li>
+                            <li>Explicar regras de segurança (10 regras).</li>
+                            <li>Preparar gravetos/madeira.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14:30 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">13:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-stopwatch mr-2 text-blue-600"></i>Gincana / Tempo Livre</h3>
+                </div>
+            </div>
+
+            <!-- 15:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">15:00</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-gray-400">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-boxes mr-2"></i>Desmontagem</h3>
+                    <p class="text-sm text-gray-600">Limpeza da área (Lema: não deixar nada).</p>
+                </div>
+            </div>
+
+             <!-- 15:30 -->
+             <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">15:30</div>
+                <div class="flex-1 bg-white p-4 rounded-lg shadow-md border-l-4 border-green-800">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-flag-checkered mr-2 text-green-600"></i>Encerramento</h3>
+                    <p class="text-sm text-gray-600">Arriamento e oração final.</p>
+                </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-20 text-right font-bold text-gray-600 pt-3">16:00</div>
+                <div class="flex-1 bg-green-100 p-4 rounded-lg shadow-md border-l-4 border-green-600">
+                    <h3 class="font-bold text-lg text-gray-800"><i class="fas fa-bus mr-2"></i>Volta para Casa</h3>
+                    <p class="text-sm text-gray-600">Fim do acampamento.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-10 text-gray-500 text-sm pb-10">
+        <p>Maranata! O Senhor logo vem.</p>
+    </footer>
+</body>
+</html>
